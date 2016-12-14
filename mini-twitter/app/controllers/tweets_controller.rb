@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
   # GET /tweets
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.all.order("created_at DESC")
   end
 
   # GET /tweets/1
@@ -24,7 +24,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
 
     if @tweet.save
-      redirect_to @tweet, notice: 'Tweet was successfully created.'
+      redirect_to tweets_path, notice: 'Tweet was successfully created.'
     else
       render :new
     end
@@ -48,8 +48,8 @@ class TweetsController < ApplicationController
   end
 
   private
-    # Only allow a trusted parameter "white list" through.
-    def tweet_params
-      params.require(:tweet).permit(:post, :user-name)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def tweet_params
+    params.require(:tweet).permit(:post, :username)
+  end
 end

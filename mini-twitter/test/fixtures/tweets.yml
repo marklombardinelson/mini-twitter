@@ -2,8 +2,8 @@
 
 one:
   post: MyString
-  user-name: MyString
+  username: MyString
 
 two:
   post: MyString
-  user-name: MyString
+  username: MyString

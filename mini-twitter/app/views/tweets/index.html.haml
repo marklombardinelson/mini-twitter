@@ -1,22 +1,16 @@
-.page-header
-  = link_to new_tweet_path, class: 'btn btn-primary' do
-    %span.glyphicon.glyphicon-plus
-    New Tweet
-  %h1 Listing tweets
-
 .table-responsive
   %table.table.table-striped.table-bordered.table-hover
     %thead
       %tr
         %th Post
-        %th User-name
+        %th Username
         %th{colspan: 3}
 
     %tbody
       - @tweets.each do |tweet|
         %tr
           %td= tweet.post
-          %td= tweet.user-name
+          %td= tweet.username
           %td
             = link_to tweet do
               %span.glyphicon.glyphicon-ok
